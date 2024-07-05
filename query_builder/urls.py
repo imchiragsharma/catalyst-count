@@ -1,6 +1,8 @@
 from django.urls import path
-from query_builder.views import query_builder_view
+from .views import QueryBuilderView, query_builder
 
 urlpatterns = [
-    path('query_builder/', query_builder_view, name='query_builder'),
+    path('', query_builder, name='query_builder'),
+    path('api/query-builder/', QueryBuilderView.as_view() , name='query_builder_api'),
+    # path('query-builder/', QueryBuilderView.as_view() , name='query_builder1'),
 ]

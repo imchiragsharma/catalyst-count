@@ -1,22 +1,26 @@
 # data/views.py
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.http import JsonResponse
+from .forms import UploadFileForm
 from django.contrib.auth.decorators import login_required
+from .models import UploadedFile
 
-
-# @login_required
+@login_required
 def upload_view(request):
     if request.method == 'POST':
-        # Handle file upload here
-        uploaded_file = request.FILES['file']
-        # Save the file or process it as needed
-        # Add any logic to handle chunked uploads if necessary
-        # For example, you can save the file to a temporary location
-        with open(uploaded_file.name, 'wb+') as destination:
-            for chunk in uploaded_file.chunks():
-                destination.write(chunk)
-        return render(request, 'data/upload.html', {'success': 'File uploaded successfully'})
-    return render(request, 'data/upload.html')
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = request.FILES['file']
+            description = form.cleaned_data.get('description', '')
+            uploaded_file = UploadedFile.objects.create(
+                user=request.user, 
+                file=file,
+            )
+            return JsonResponse({'message': 'File uploaded successfully'})
+        else:
+            return JsonResponse({'error': form.errors}, status=400)
+    else:
+        form = UploadFileForm()
+    return render(request, 'data/upload.html', {'form': form})
 
 
