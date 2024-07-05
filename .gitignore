@@ -1,1 +1,2 @@
-media/uploads/
+# Ignore uploads folder in media directory
+/media/uploads/
