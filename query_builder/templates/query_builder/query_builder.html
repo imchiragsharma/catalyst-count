@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Query Builder{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h2>Query Builder</h2>
+        <form method="get" action="{% url 'query_builder' %}">
+            {% csrf_token %}
+            <!-- Add your form fields for filtering data here -->
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
