@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from .forms import UploadFileForm
 from django.contrib.auth.decorators import login_required
 from .models import UploadedFile
+from .utils import process_csv
 
 @login_required
 def upload_view(request):
@@ -11,11 +12,11 @@ def upload_view(request):
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
             file = request.FILES['file']
-            description = form.cleaned_data.get('description', '')
             uploaded_file = UploadedFile.objects.create(
                 user=request.user, 
                 file=file,
             )
+            process_csv(file)
             return JsonResponse({'message': 'File uploaded successfully'})
         else:
             return JsonResponse({'error': form.errors}, status=400)
