@@ -12,13 +12,17 @@
             <div class="col-md-4">
                 <select class="form-control" name="industry">
                     <option value="">Industry</option>
-                    <!-- Add industry options -->
+                    {% for industry in industries %}
+                        <option value="{{ industry }}">{{ industry }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="col-md-4">
                 <select class="form-control" name="year_founded">
                     <option value="">Year Founded</option>
-                    <!-- Add year options -->
+                    {% for year in years_founded %}
+                        <option value="{{ year }}">{{ year }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
@@ -26,19 +30,25 @@
             <div class="col-md-4">
                 <select class="form-control" name="city">
                     <option value="">City</option>
-                    <!-- Add city options -->
+                    {% for city in cities %}
+                        <option value="{{ city }}">{{ city }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="col-md-4">
                 <select class="form-control" name="state">
                     <option value="">State</option>
-                    <!-- Add state options -->
+                    {% for state in states %}
+                        <option value="{{ state }}">{{ state }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div class="col-md-4">
                 <select class="form-control" name="country">
                     <option value="">Country</option>
-                    <!-- Add country options -->
+                    {% for country in countries %}
+                        <option value="{{ country }}">{{ country }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
@@ -66,6 +76,7 @@ document.getElementById('queryForm').addEventListener('submit', function(e) {
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
 
+    console.log('Sending data:', data); 
     fetch('/api/query-builder/', {
         method: 'POST',
         headers: {
@@ -75,12 +86,14 @@ document.getElementById('queryForm').addEventListener('submit', function(e) {
         body: JSON.stringify(data)
     })
     .then(response => {
+
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         return response.json();
     })
     .then(data => {
+        console.log('Received data:', data);
         const resultDiv = document.getElementById('resultCount');
         resultDiv.textContent = `${data.count} records found for the query`;
         resultDiv.style.display = 'block';
