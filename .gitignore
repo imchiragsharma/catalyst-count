@@ -1,4 +1,4 @@
 # Ignore uploads folder in media directory
 /media/uploads/
 debug.log
-
+account/management/commands/clean_logs.py
