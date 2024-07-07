@@ -83,12 +83,13 @@ This Django project allows users to upload large CSV files, update the database 
 - **GET /query_builder/api/filter-options/**: Fetch distinct filter options from the database.
 - **POST /query_builder/api/query-builder/**: Filter data based on selected criteria.
 
-### Upload CSVNavigate to the CSV upload page.
-1. Upload your CSV file and wait for the progress bar to complete.
-2. Filter Data
+### Upload CSV
+- Navigate to the CSV upload page.
+- Upload your CSV file and wait for the progress bar to complete.
+- Filter Data
    
 ### Navigate to the query builder page.
-1. Use the form to select your filter criteria.
-2. Submit the form to see the count of records matching the criteria.
+- Use the form to select your filter criteria.
+- Submit the form to see the count of records matching the criteria.
 
 
