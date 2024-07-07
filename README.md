@@ -47,7 +47,6 @@ This Django project allows users to upload large CSV files, update the database 
     ```sh
     SECRET_KEY=your_secret_key
     DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
-
     ```
 
 6. **Run database migrations**:
@@ -73,12 +72,15 @@ This Django project allows users to upload large CSV files, update the database 
 2. **Upload CSV files**:
     Go to the CSV upload page and select a file to upload. The progress bar will display the upload status.
    ```sh
-   ![image](https://github.com/imchiragsharma/catalyst-count/assets/42317113/e8a84d04-95d7-499a-b309-bb51aaa0849f)
+   ![Screenshot 2024-07-07 235940](https://github.com/imchiragsharma/catalyst-count/assets/42317113/666fba15-580e-4856-8881-4bc92f02760d)
    '''
-
 
 4. **Filter data**:
     Use the filter form on the main page to dynamically filter the data based on available options.
+   ```sh
+   ![Screenshot 2024-07-08 000245](https://github.com/imchiragsharma/catalyst-count/assets/42317113/b864e380-10a7-4d6e-888b-e67ac608e5c1)
+   '''
+   
 
 ### API Endpoints
 
