@@ -3,5 +3,5 @@ from .views import QueryBuilderView, query_builder
 
 urlpatterns = [
     path('', query_builder, name='query_builder'),
-    path('api/query_builder/', QueryBuilderView.as_view() , name='query_builder_api'),
+    path('api/query-builder/', QueryBuilderView.as_view() , name='query_builder_api'),
 ]

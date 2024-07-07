@@ -75,9 +75,15 @@ document.getElementById('queryForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const formData = new FormData(this);
     const data = Object.fromEntries(formData.entries());
+     // Convert empty strings to null for integer fields
+     ['year_founded', 'employees_from', 'employees_to'].forEach(field => {
+        if (data[field] === '') {
+            data[field] = null;
+        }
+    });
 
-    console.log('Sending data:', data); 
-    fetch('/api/query-builder/', {
+    //console.log('Sending data:', data); 
+    fetch('/query_builder/api/query-builder/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -93,7 +99,7 @@ document.getElementById('queryForm').addEventListener('submit', function(e) {
         return response.json();
     })
     .then(data => {
-        console.log('Received data:', data);
+        //console.log('Received data:', data);
         const resultDiv = document.getElementById('resultCount');
         resultDiv.textContent = `${data.count} records found for the query`;
         resultDiv.style.display = 'block';
