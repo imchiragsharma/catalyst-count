@@ -21,6 +21,7 @@ This Django project allows users to upload large CSV files, update the database 
 - Python 3.8+
 - Django 3.2+
 - PostgreSQL
+- `django-environ` for environment variable management
 
 ### Installation
 
@@ -44,11 +45,8 @@ This Django project allows users to upload large CSV files, update the database 
 4. **Set Up Environment Variables**:
    Create a .env file in the project root and add the following environment variables:
     ```sh
-    DB_NAME=
-    DB_USER=
-    DB_PASSWORD=
-    DB_HOST=
-    DB_PORT =
+    SECRET_KEY=your_secret_key
+    DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
 
     ```
 
@@ -74,8 +72,12 @@ This Django project allows users to upload large CSV files, update the database 
 
 2. **Upload CSV files**:
     Go to the CSV upload page and select a file to upload. The progress bar will display the upload status.
+   ```sh
+   ![image](https://github.com/imchiragsharma/catalyst-count/assets/42317113/e8a84d04-95d7-499a-b309-bb51aaa0849f)
+   '''
 
-3. **Filter data**:
+
+4. **Filter data**:
     Use the filter form on the main page to dynamically filter the data based on available options.
 
 ### API Endpoints
