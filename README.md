@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Django project allows users to upload large CSV files, update the database with the contents of the uploaded file, and filter the data using a web interface. The project includes features like dynamic form fields that are populated from the database and visual progress bars during file uploads.
+This Django project allows users to upload large CSV files, update the database with the uploaded file's contents, and filter the data using a web interface. The project includes features like dynamic form fields populated from the database and visual progress bars during file uploads.
 
 ## Features
 
@@ -21,20 +21,20 @@ This Django project allows users to upload large CSV files, update the database 
 - Python 3.8+
 - Django 3.2+
 - PostgreSQL
-- `django-environ` for environment variable management
+- `Django-environ` for environment variable management
 
 ### Installation
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/catalyst-count.git
+    git clone https://github.com/yourusername/django-csv-query-builder.git
     cd catalyst-count
     ```
 
 2. **Create and activate a virtual environment**:
     ```sh
     python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    source venv\Scripts\activate
     ```
 
 3. **Install the dependencies**:
