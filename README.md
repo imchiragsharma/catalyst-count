@@ -70,20 +70,25 @@ This Django project allows users to upload large CSV files, update the database 
     Visit `http://127.0.0.1:8000/admin` and log in with your superuser credentials.
 
 2. **Upload CSV files**:
-    Go to the CSV upload page and select a file to upload. The progress bar will display the upload status
+    Go to the upload data page and select a file to upload. The progress bar will display the upload status
    ![Screenshot 2024-07-07 235940](https://github.com/imchiragsharma/catalyst-count/assets/42317113/666fba15-580e-4856-8881-4bc92f02760d)
    
 
-4. **Filter data**:
+3. **Filter data**:
     Use the filter form on the main page to dynamically filter the data based on available options.
    ![Screenshot 2024-07-08 000245](https://github.com/imchiragsharma/catalyst-count/assets/42317113/b864e380-10a7-4d6e-888b-e67ac608e5c1)
+
+4. **Download CSV**:
+    Click on the Download CSV button to download the CSV file of the API result.
+   ![Screenshot 2024-07-14 195401](https://github.com/user-attachments/assets/ccf369f3-98f0-4aaf-ad69-3ebb6633cc1c)
+   
    
    
 
 ### API Endpoints
 - **POST /query_builder/api/query-builder/**: Filter data based on selected criteria.
 
-### Upload CSV
+### Upload Data
 - Navigate to the CSV upload page.
 - Upload your CSV file and wait for the progress bar to complete.
 - Filter Data
