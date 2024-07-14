@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Django project allows users to upload large CSV files, update the database with the contents of the uploaded file, and filter the data using a web interface. The project includes features like dynamic form fields that are populated from the database and visual progress bars during file uploads.
+This Django project allows users to upload large CSV files, update the database with the uploaded file's contents, and filter the data using a web interface. The project includes features like dynamic form fields populated from the database and visual progress bars during file uploads.
 
 ## Features
 
@@ -21,19 +21,20 @@ This Django project allows users to upload large CSV files, update the database 
 - Python 3.8+
 - Django 3.2+
 - PostgreSQL
+- `Django-environ` for environment variable management
 
 ### Installation
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/catalyst-count.git
+    git clone https://github.com/yourusername/django-csv-query-builder.git
     cd catalyst-count
     ```
 
 2. **Create and activate a virtual environment**:
     ```sh
     python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    source venv\Scripts\activate
     ```
 
 3. **Install the dependencies**:
@@ -44,12 +45,8 @@ This Django project allows users to upload large CSV files, update the database 
 4. **Set Up Environment Variables**:
    Create a .env file in the project root and add the following environment variables:
     ```sh
-    DB_NAME=
-    DB_USER=
-    DB_PASSWORD=
-    DB_HOST=
-    DB_PORT =
-
+    SECRET_KEY=your_secret_key
+    DATABASE_URL=postgres://USER:PASSWORD@HOST:PORT/DBNAME
     ```
 
 6. **Run database migrations**:
@@ -73,14 +70,17 @@ This Django project allows users to upload large CSV files, update the database 
     Visit `http://127.0.0.1:8000/admin` and log in with your superuser credentials.
 
 2. **Upload CSV files**:
-    Go to the CSV upload page and select a file to upload. The progress bar will display the upload status.
+    Go to the CSV upload page and select a file to upload. The progress bar will display the upload status
+   ![Screenshot 2024-07-07 235940](https://github.com/imchiragsharma/catalyst-count/assets/42317113/666fba15-580e-4856-8881-4bc92f02760d)
+   
 
-3. **Filter data**:
+4. **Filter data**:
     Use the filter form on the main page to dynamically filter the data based on available options.
+   ![Screenshot 2024-07-08 000245](https://github.com/imchiragsharma/catalyst-count/assets/42317113/b864e380-10a7-4d6e-888b-e67ac608e5c1)
+   
+   
 
 ### API Endpoints
-
-- **GET /query_builder/api/filter-options/**: Fetch distinct filter options from the database.
 - **POST /query_builder/api/query-builder/**: Filter data based on selected criteria.
 
 ### Upload CSV
